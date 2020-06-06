@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-sm bg-white  justify-content-center">
+        <ul class="navbar-nav">
+           <li class="nav-item">
+             <div class="nav justify-content-end m-3" routerLinkActive="active">
+             <a class="btn btn-info" routerLink="/adduser">New Profile</a>
+             </div>
+           </li>
+            <li class="nav-item">
+             <div class="nav justify-content-end m-3" routerLinkActive="active">
+             <a class="btn btn-warning" routerLink="/showuser">Copy Profile</a>
+             </div>
+           </li>
+        </ul>
+</nav>
+<div class="container">            
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Action</th>
+          <th>TP Group</th>
+          <th>TP Profile ID</th>
+          <th>Trading Partner Name</th>
+          <th>ISA QUAL</th>
+          <th>ISA ID</th>
+          <th>GS ID</th>
+          
+        </tr>
+      </thead>
+     
+      <tbody>
+        <tr *ngFor= "let u of users"  (click)="onSelect(u)">
+         <td>Select/Update</td>
+          <td>{{u.tp_group}}</td>
+          <td>{{u.tp_id}}</td>
+          <td>{{u.trading_partner_name}}</td>
+          <td>{{u.isa_qual}}</td>
+          <td>{{u.isa_id}}</td>
+          <td>{{u.gs_id}}</td>
+        </tr>
+       
+      
+      </tbody>
+    </table>
+  </div>
+
+ 
+<app-details *ngIf="user" [userData]="user"  (valueChange)='displayDetails($event)'></app-details>
+
+
+
+
+<dx-data-grid id="gridContainer"
+   
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true"
+    [dataSource]="users">
+    
+    
+    <dxi-column dataField="tp_group" dataType="string" ></dxi-column>
+    <dxi-column dataField="tp_id" dataType="string"></dxi-column>
+    <dxi-column dataField="trading_partner_name" dataType="string"></dxi-column>
+    <dxi-column dataField="isa_qual" dataType="string"></dxi-column>
+    <dxi-column dataField="isa_id" dataType="string"></dxi-column>
+    <dxi-column dataField="gs_id" dataType="string" ></dxi-column>
+    
+</dx-data-grid>
+
+  
+  

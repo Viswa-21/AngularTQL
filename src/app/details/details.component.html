@@ -1,0 +1,128 @@
+<div class="container">
+    <h2 class="text-center">  {{user.trading_partner_name}} - TPID {{user.tp_id}}</h2>
+        <br>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab"  data-target="#general">General</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" data-target="#transactions">Transactions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" data-target="#contacts">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" data-target="#ruledefaults">RuleDefaults</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" data-target="#relateditems">Related Items</a>
+          </li>
+        </ul>
+    <div class="tab-content">
+        <div id="general" class="container tab-pane active">
+           <form name="form" (ngSubmit)="updateUser(detailsForm.value)"  #detailsForm="ngForm" >
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row ">
+                        <div class="form-group col-sm-4">
+                            <label for="createdBy">Created By:</label>
+                            <input type="text" class="form-control" id="createdBy" name="createdBy" value="TQL\Mark Brueckner" disabled>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="dateCreated">Date Created:</label>
+                            <input type="text" class="form-control" id="dateCreated" name="dateCreated" value="9/20/2018" disabled>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="recordStatus">RecordStatus</label>
+                            <select disabled>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>                    
+                        </div>
+                        </div>
+                        <div class="row ">
+                            <div class="form-group col-sm-4">
+                                <label for="isa_qual">ISA QUAL</label>
+                                <input type="text" class="form-control" id="isa_qual" [(ngModel)]="user.isa_qual" name="isa_qual" #isa_qual="ngModel">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="isa_id">ISA ID</label>
+                                <input type="text" class="form-control" id="isa_id" [(ngModel)]="user.isa_id" name="isa_id" #isa_id="ngModel">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="gs_id">GS ID</label>
+                                <input type="text" class="form-control" id="gs_id" [(ngModel)]="user.gs_id" name="gs_id" #gs_id="ngModel">                
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="form-group col-sm-4">
+                                <label for="dnService"> DunNumberService </label>
+                                <input type="text" class="form-control" id="dnService"  value="L1101" disabled>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="dnQual">DunaNumberQual</label>
+                                <input type="text" class="form-control" id="dnQual"  value="11" disabled>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="dn">DunaNumber</label>
+                                <input type="text" class="form-control" id="dn"  value="DYTS" disabled>                
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                              <label for="emailTo"> InEmailTo </label>
+                                <input type="email" class="form-control" id="emailTo"  value="abc@gmail.com" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="emailCC"> InEmailTo </label>
+                                <input type="email" class="form-control" id="emailCC"  value="xyz@gmail.com" disabled>
+                            </div>
+                         </div>      
+                    </div>
+            
+            <div class=" col-sm-3">
+              <fieldset  class="border .h-75" style="height:400px">
+                <legend  class="w-auto"><h6>Additional Users</h6></legend>
+                <div class="border m-3 p-3">
+                    <ul>
+                <li>Graham Wagner</li>
+                <li>Mike Kaene</li>
+                <li>Price MClone</li>
+                <li>Bob Marley</li>
+            </ul>
+                </div>
+            
+            <div class="text-center mb-3">
+                <button class="btn btn-success mr-sm-1">Add</button>
+                <button class="btn btn-success">Edit</button>
+            </div>
+                
+             </fieldset>
+            </div>
+            <div class="col-sm-3">
+                <fieldset class="border .h-75" style="height:400px">
+                  <legend  class="w-auto"><h6>Additional Customers</h6></legend>
+                  <div class="text-center mb-3">
+                    <button class="btn btn-success mr-sm-1">Add</button>
+                    <button class="btn btn-success">Edit</button>
+                </div>
+                    
+               </fieldset>
+              </div>
+              
+              <div class="align-self-end ml-auto"> 
+                <button type="submit" class="btn btn-success mr-sm-1">Save</button> 
+                <button type="button" class="btn btn-success"> Cancel</button> 
+             </div>
+            </div>
+            </form>
+        
+            
+          </div>
+         
+      </div>
+      
+     
+    
